@@ -9,11 +9,7 @@ jobs:
   build:
     runs-on: linux
     
-    steps:
-      - name: just go
-            
-      - name: aws --version
-      
+    steps:      
       # s3
       - name: sync bucket
         env:
