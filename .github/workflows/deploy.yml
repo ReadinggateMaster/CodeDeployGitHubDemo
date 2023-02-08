@@ -7,7 +7,7 @@ on:
 
 env:
   S3_BUCKET_NAME: rg-7th-bucket
-  CODE_DEPLOY_APPLICATION_NAME: rt-7th-cd
+  CODE_DEPLOY_APPLICATION_NAME: rg-7th-cd
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: rg-7th-cd-group
     
 jobs:
