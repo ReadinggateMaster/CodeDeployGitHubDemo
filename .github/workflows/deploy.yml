@@ -1,26 +1,56 @@
 name: CI
+
+# main branch에 push 했을 경우 실행한다
 on:
   push:
     branches: main
-  pull_request:
-    branches: main
+
+env:
+  S3_BUCKET_NAME: rg-7th-bucket
+  CODE_DEPLOY_APPLICATION_NAME: rt-7th-cd
+  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: rg-7th-cd-group
     
 jobs:
   build:
     runs-on: linux
     
     steps:
-      - name: git clone
-        uses: actions/checkout@v2
-              
-      # s3
-      - name: sync bucket
-        env:
-          AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-          AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-          
-        run: | 
-          aws s3 cp \
-            --recursive \
-            --region ap-northeast-2 \
-            build s3://rg-7th-bucket
+      - name: checkout
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      # package.json 설치
+      - name: install dependencies
+        run: npm install
+
+      # 프로젝트 빌드
+      - name: build
+        run: npm run build
+
+      # 프로젝트 압축
+      - name: make zip
+        run: zip -qq -r ./$GITHUB_SHA.zip . - "node_modules/*"
+        shell: bash
+
+      # aws 접근 권한 얻기
+      - name: get AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      # zip 파일을 S3로 업로드
+      - name: upload to s3
+        run: aws s3 cp --region ${{ secrets.AWS_REGION }} ./$GITHUB_SHA.zip s3://$S3_BUCKET_NAME/$GITHUB_SHA.zip
+
+      # code deploy 동작
+      - name: code deploy
+        run: |
+          aws deploy create-deployment \
+          --deployment-config-name CodeDeployDefault.AllAtOnce \
+          --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
+          --deployment-group-name ${{ env.CODE_DEPLOY_DEPLOYMENT_GROUP_NAME }} \
+          --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$GITHUB_SHA.zip
