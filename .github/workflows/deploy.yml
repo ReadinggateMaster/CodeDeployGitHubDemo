@@ -32,8 +32,16 @@ jobs:
         run: npm run build
 
       # 프로젝트 압축
+      # deploy 폴더를 만들고
+      # code-deploy에서 실행해줄 appspec.yml과 scripts들을 복사해서 넣어준다.
+      # 그리고 위에서 빌드한 빌드 파일을 넣은 후 압축을 진행한다.
       - name: make zip
-        run: zip -qq -r ./$GITHUB_SHA.zip . - "node_modules/*"
+        run: |
+          mkdir -p deploy \
+          cp appspec.yml deploy \
+          cp scripts/*.sh deploy \
+          cp dist/* deploy \
+          zip -r $GITHUB_SHA.zip deploy
         shell: bash
 
       # aws 접근 권한 얻기
