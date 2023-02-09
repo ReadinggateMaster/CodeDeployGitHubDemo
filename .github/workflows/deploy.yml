@@ -1,15 +1,17 @@
 name: CI
 
-# main branch에 push 했을 경우 실행한다
+# on안에 정의해준 사항에 따라 하단을 실행한다.
 on:
   push:
     branches: main
 
+# env는 deploy.ymld에서 사용할 변수들을 정의한다.
 env:
   S3_BUCKET_NAME: rg-7th-bucket
   CODE_DEPLOY_APPLICATION_NAME: rg-7th-cd
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: rg-7th-cd-group
-    
+
+# jobs는 사용자가 실행할 행동들을 모아둔다.    
 jobs:
   build:
     runs-on: ubuntu-latest

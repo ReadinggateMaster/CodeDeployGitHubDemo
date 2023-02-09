@@ -1,1 +1,1 @@
-# CodeDeployGitHubDemo
+readinggate ci / cd 구축
