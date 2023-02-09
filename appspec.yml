@@ -10,12 +10,12 @@ env:
 files:
   # dist 폴더 복사
   - source: ./dist
-    destination: ${{ env.ROOT_FOLDER}}/dist
+    destination: ${{ env.ROOT_FOLDER }}/dist
     file_exists_behavior: OVERWRITE
 
   # ec2에서 실행할 script들이 담긴 scripts폴더 복사
   - source: ./scripts
-    destination: ${{ env.ROOT_FOLDER}}
+    destination: ${{ env.ROOT_FOLDER }}
     file_exists_behavior: OVERWRITE 
 
 # permissions는 복사한 폴더에 권한을 부여하는 역할이다.    
