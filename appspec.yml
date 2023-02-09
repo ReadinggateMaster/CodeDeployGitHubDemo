@@ -6,12 +6,12 @@ os: linux
 # destinatioin은 복사할 위치이다.
 files:
   # dist 폴더 복사
-  - source: /dist
+  - source: ./dist
     destination: /home/ec2-user/workspace
     file_exists_behavior: OVERWRITE
 
   # ec2에서 실행할 script들이 담긴 scripts폴더 복사
-  - source: /scripts
+  - source: ./scripts
     destination: /home/ec2-user/workspace
     file_exists_behavior: OVERWRITE 
 
