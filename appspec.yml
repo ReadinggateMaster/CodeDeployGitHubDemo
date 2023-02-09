@@ -2,50 +2,23 @@ version: 0.0
 os: linux
 files:
   - source: /dist
-    destination: /usr/share/nginx/server/
+    destination: /home/ec2-user/workspace
+    file_exists_behavior: OVERWRITE
     
 permissions:
   - object: /home/ec2-user/workspace/
-    owner: root
-    group: root
+    owner: ec2-user
+    group: ec2-user
       
-hooks:
-  ApplicationStop:
-    - location: 
-      timeout:
-      runas:
-    - location: 
-      timeout:
-      runas: 
-      
+hooks:      
   BeforeInstall:
-    - location: 
-      timeout:
-      runas: 
-    - location: 
-      timeout:
-      runas:
+    - location: ./scripts/before-install.sh
+      timeout: 900
       
   AfterInstall:
-    - location:     
-      timeout: 
-      runas:
-    - location: 
-      timeout:
-      runas:
+    - location: ./scripts/after-install.sh     
+      timeout: 900
       
   ApplicationStart:
-    - location:     
-      timeout: 
-      runas:
-    - location: 
-      timeout:
-      runas:
-      
-  ValidateService:
-    - location:     
-      timeout: 
-      runas:
-    - location: 
-      timeout:
-      runas:
+    - location: ./scripts/application-start.sh  
+      timeout: 900
