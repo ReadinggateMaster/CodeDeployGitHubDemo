@@ -1,4 +1,4 @@
 #!/bin/bash
-cd /home/ec2-user/workspace
+cd /home/ec2-user/workspace/readinggate-rest-api-nest-server
 
-echo "The ApplicationStart deployment lifecycle event successfully completed." > application-start.txt
+echo "The ApplicationStart deployment lifecycle event successfully completed."

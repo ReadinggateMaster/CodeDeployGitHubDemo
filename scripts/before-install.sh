@@ -1,13 +1,16 @@
 #!/bin/bash
-export STUDY_API_SERVER_ROOT=/home/ec2-user/workspace/study-api
+export FOLDER=/home/ec2-user/workspace/readinggate-rest-api-nest-server
 
 # -d는 디렉토리인지 확인하는 명령어이다.
-if [ -d $STUDY_API_SERVER_ROOT ]
+if [ -d $FOLDER ]
 then
- rm -rf $STUDY_API_SERVER_ROOT
+ rm -rf $FOLDER
 fi
 
-mkdir -p $STUDY_API_SERVER_ROOT
-cd $STUDY_API_SERVER_ROOT
+mkdir -p $FOLDER
+cd $FOLDER
 
+# 폴더 생성
+mkdir scripts
 mkdir dist
+mkdir assets
