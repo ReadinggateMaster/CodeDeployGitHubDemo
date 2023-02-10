@@ -51,10 +51,10 @@ jobs:
         run: ls deploy
 
       - name: 2
-        run: cd deploy && ls dist
+        run: ls deploy/dist
 
       - name: 3
-        run: cd deploy && ls scripts
+        run: ls deploy/scripts
 
       - name: make zip
         run: zip $GITHUB_SHA.zip deploy/*
