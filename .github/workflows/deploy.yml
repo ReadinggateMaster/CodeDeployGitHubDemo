@@ -47,6 +47,9 @@ jobs:
       - name: copy dist file
         run: cp -r dist/* deploy
 
+      - name: echo
+        run: cd dist && ls -a
+
       - name: make zip
         run: zip $GITHUB_SHA.zip deploy/
 
