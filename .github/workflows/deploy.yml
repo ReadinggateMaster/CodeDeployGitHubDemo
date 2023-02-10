@@ -37,7 +37,7 @@ jobs:
       # 그리고 위에서 빌드한 빌드 파일을 넣은 후 압축을 진행한다.
       - name: make zip
         run: |
-          mkdir -p deploy \
+          mkdir deploy \
           cp appspec.yml deploy \
           cp -r scripts/*.sh deploy \
           cp -r dist/* deploy \
