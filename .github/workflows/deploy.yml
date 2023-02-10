@@ -39,13 +39,13 @@ jobs:
         run: mkdir deploy
 
       - name: copy appspec
-        run: cp appspec.yml deploy
+        run: cp appspec.yml deploy/appspec.yml
 
       - name: copy script files
-        run: cp -r scripts/*.sh deploy
+        run: cp scripts deploy
 
       - name: copy dist file
-        run: cp -r dist/* deploy
+        run: cp dist deploy
 
       - name: echo
         run: cd dist && ls -a
