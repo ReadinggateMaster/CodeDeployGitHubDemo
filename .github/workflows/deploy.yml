@@ -54,7 +54,7 @@ jobs:
         run: cd deploy && ls dist
 
       - name: 3
-        run: ls scripts
+        run: cd deploy && ls scripts
 
       - name: make zip
         run: zip $GITHUB_SHA.zip deploy/*
