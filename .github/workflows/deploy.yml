@@ -42,10 +42,10 @@ jobs:
         run: cp appspec.yml deploy/appspec.yml
 
       - name: copy script files
-        run: cp scripts deploy
+        run: cp -r scripts deploy
 
       - name: copy dist file
-        run: cp dist deploy
+        run: cp -r dist deploy
 
       - name: echo
         run: cd dist && ls -a
