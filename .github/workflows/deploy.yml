@@ -48,7 +48,7 @@ jobs:
         run: cp -r dist/* deploy
 
       - name: make zip
-        run: zip $GITHUB_SHA.zip deploy
+        run: zip $GITHUB_SHA.zip deploy/
 
       # aws 접근 권한 얻기
       - name: get AWS credentials
