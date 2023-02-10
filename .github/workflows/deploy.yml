@@ -44,6 +44,9 @@ jobs:
       - name: copy script files
         run: cp -r scripts deploy/
 
+      - name: copy node modules
+        run: cp -r node_modules deploy/
+
       - name: copy dist file
         run: cp -r dist deploy/
 
