@@ -44,9 +44,6 @@ jobs:
       - name: copy script files
         run: cp -r scripts deploy/
 
-      - name: copy package.json
-        run: cp package.json deploy/
-
       - name: copy dist file
         run: cp -r dist deploy/
 
