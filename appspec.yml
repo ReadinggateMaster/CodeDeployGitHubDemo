@@ -13,8 +13,6 @@ files:
 # permissions는 복사한 폴더에 권한을 부여하는 역할이다.    
 permissions:
   - object: /home/ec2-user/workspace/readinggate-rest-api-nest-server
-    owner: ec2-user
-    group: ec2-user
 
 # hooks는 해당 상황에 따른 실행할 스크립트들을 넣어준다.
 hooks:
