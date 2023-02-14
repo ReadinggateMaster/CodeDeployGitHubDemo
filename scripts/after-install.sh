@@ -1,9 +1,8 @@
 #!/bin/bash
-export NPM_ROOT=${which npm}
-export PM2_ROOT=${which pm2}
+sudo ln -s which npm /usr/local/bin/npm
+sudo ln -s which pm2 /usr/local/bin/pm2
 
-sudo ln -s $NPM_ROOT /usr/local/bin
-sudo ln -s $PM2_ROOT /usr/local/bin
+echo which npm
 
 cd /home/ec2-user/workspace/readinggate-rest-api-nest-server
 
