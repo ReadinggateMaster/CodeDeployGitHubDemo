@@ -1,4 +1,4 @@
 #!/bin/bash
-cd /home/ec2-user/workspace/readinggate-rest-api-nest-server
+pm2 delete main
 
-echo "The ApplicationStart deployment lifecycle event successfully completed."
+pm2 start dist/main.js
