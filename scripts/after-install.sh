@@ -1,7 +1,7 @@
 #!/bin/bash
-sudo ln -s /root/.nvm/versions/node/v16.19.0/bin/node /usr/bin/env
-sudo ln -s /root/.nvm/versions/node/v16.19.0/bin/npm /usr/bin/env
-sudo ln -s which /root/.nvm/versions/node/v16.19.0/bin/pm2 /usr/bin/env
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 sudo npm -v
 
