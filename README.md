@@ -1,1 +1,1 @@
-readinggate ci / cd 구축
+readinggate ci / cd 구축?
