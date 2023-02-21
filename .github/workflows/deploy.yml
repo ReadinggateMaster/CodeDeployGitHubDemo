@@ -38,11 +38,11 @@ jobs:
       - name: mkdir deploy
         run: mkdir deploy
 
-      - name: copy package.json
-        run: cp package.json deploy/
-
       # - name: copy dist file
       #   run: cp -r dist deploy/
+
+      - name: copy package.json
+        run: cp package.json deploy/
 
       - name: copy src
         run: cp -r src deploy/
