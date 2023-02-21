@@ -27,6 +27,7 @@ jobs:
       # package.json 설치
       - name: install dependencies
         run: npm install
+        run: npm test
 
       # 프로젝트 빌드
       - name: build
