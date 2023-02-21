@@ -6,5 +6,3 @@ export NVM_DIR="$HOME/.nvm"
 cd /home/ec2-user/workspace/readinggate-rest-api-nest-server
 
 sudo npm install
-
-sudo npm run build
