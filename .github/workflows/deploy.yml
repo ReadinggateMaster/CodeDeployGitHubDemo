@@ -24,12 +24,12 @@ jobs:
           node-version: 16.x
 
       # package.json 설치
-      - name: install dependencies
-        run: npm install
+      # - name: install dependencies
+      #   run: npm install
 
       # 프로젝트 빌드
-      - name: build
-        run: npm run build
+      # - name: build
+      #   run: npm run build
 
       # 프로젝트 압축
       # deploy 폴더를 만들고
@@ -41,11 +41,23 @@ jobs:
       - name: copy package.json
         run: cp package.json deploy/
 
-      - name: copy dist file
-        run: cp -r dist deploy/
+      # - name: copy dist file
+      #   run: cp -r dist deploy/
+
+      - name: copy src
+        run: cp -r src deploy/
 
       - name: copy ecosystem.config
         run: cp ecosystem.config.js deploy/
+
+      - name: copy nest-cli.json
+        run: cp nest-cli.json deploy/
+
+      - name: copy tsconfig.build.config
+        run: cp tsconfig.build.config deploy/
+
+      - name: copy tsconfig.json
+        run: cp tsconfig.json deploy/
 
       - name: copy appspec
         run: cp appspec.yml deploy/appspec.yml
