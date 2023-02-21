@@ -17,11 +17,11 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: checkout
-        uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
+      # - name: checkout
+      #   uses: actions/checkout@v3
+      # - uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 16.x
 
       # package.json 설치
       # - name: install dependencies
