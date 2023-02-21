@@ -22,11 +22,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
+          cache: npm
 
       # package.json 설치
       - name: install dependencies
         run: npm install
-        cache: npm
 
       # 프로젝트 빌드
       - name: build
